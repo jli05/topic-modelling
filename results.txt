@@ -1,0 +1,191 @@
+nytimes
+---------
+
+docCount = 299650
+
+scala> docLenDF.stat.approxQuantile("_2", Array(.05, .25, .5, .75, .95), .1)
+res11: Array[Double] = Array(1.0, 217.0, 308.0, 1554.0, 3586.0)                 
+
+NMF
+
+Topic #0: zzz_nuclear, zzz_bob_knight, zzz_airbus, zzz_joseph_lieberman, zzz_ernie_el, zzz_nih, zzz_baseball, zzz_tony_sanchez, zzz_tcu, asbestos, zzz_republica
+n_party, pope, zzz_cable, mas, zzz_treaty, zzz_richardson, zzz_pat_buchanan, zzz
+_calvin_klein, zzz_patrick_ewing, zzz_john_lennon
+Topic #1: profanity, zzz_alberto_fujimori, zzz_mercury, zzz_janet_reno, zzz_rick_lazio, zzz_houston_astros, zzz_broadband, zzz_catholic_church, zzz_arthur_ander
+sen, zzz_napster, zzz_richard_riordan, zzz_martina_hingis, zzz_gonzaga, zzz_amer
+ica_west, zzz_chinese, bellow, zzz_joe_kerrigan, zzz_palestinian, zzz_nra, zzz_b
+asketball
+Topic #2: zzz_david_cone, everglades, zzz_stephen_king, zzz_archdiocese, zzz_sergio_garcia, zzz_honey, zzz_henry_kissinger, zzz_polaroid, zzz_vince_carter, zzz_
+tom_hick, zzz_voting, zzz_augusta_national, zzz_ivan_rodriguez, zzz_nyt, biotech
+, zzz_patrick_roy, zzz_will_smith, zzz_hunter, zzz_michael_vick, coca
+Topic #3: zzz_barbara_bush, zzz_stephen, zzz_walt_disney, zzz_cart, zzz_john_henry, zzz_eating, zzz_serena_william, zzz_orlando_hernandez, embryos, zzz_andy_war
+hol, zzz_xbox, zzz_tom_brady, zzz_cipro, zzz_al_qaeda, zzz_ashley, zzz_ron_howar
+d, zzz_jerry_jones, zzz_branch_davidian, zzz_bill_bradley, zzz_holiday
+Topic #4: zzz_sebastian_junger, zzz_mike_mussina, zzz_steven_soderbergh, zzz_han
+nibal, zzz_tony_blair, zzz_tyler, zzz_bertelsmann, zzz_mark_green, zzz_ioc, por,
+ zzz_sharon, zzz_morris, zzz_vijay_singh, zzz_opec, zzz_o_donnell, zzz_al_leiter
+, zzz_united_airlines, zzz_lucy, zzz_worldcom, zzz_major_league
+Topic #5: zzz_ed_belfour, zzz_judges, zzz_ray_lewis, zzz_bill_belichick, zzz_pri
+, zzz_ehud_barak, zzz_target, zzz_dave_campo, zzz_royal_ford, zzz_paul_mccartney
+, zzz_jim_fassel, zzz_green_party, zzz_gary_sheffield, zzz_enron, zzz_veteran, z
+zz_andy_murray, stabilizer, zzz_arnold_palmer, zzz_arafat, zzz_treatment
+Topic #6: zzz_marshall_faulk, zzz_chad, zzz_hugo_chavez, zzz_wireless, zzz_john_
+ashcroft, zzz_vojislav_kostunica, zzz_dan_duquette, zzz_ichiro_suzuki, zzz_zacar
+ias_moussaoui, oxide, zzz_rudy_giuliani, zzz_spider_man, zzz_laura_bush, zzz_mar
+ion_jones, zzz_steve_forbes, zzz_afghan, zzz_musharraf, zzz_sotheby, zzz_adrian_
+beltre, zzz_cancer
+Topic #7: zzz_clarence_thomas, zzz_marc_rich, zzz_al_jazeera, zzz_modern_art, zz
+z_kerry, zzz_farc, zzz_mark_cuban, zzz_ray_bourque, zzz_jeb_bush, zzz_xerox, zzz
+_carl_everett, zzz_pervez_musharraf, zzz_merrill, zzz_paper, zzz_eminem, zzz_jam
+es_hahn, winery, zzz_mueller, zzz_pashtun, zzz_elvis_presley
+Topic #8: zzz_nicholas, zzz_mohamed_atta, zzz_david_mccullough, zzz_rick_pitino,
+ zzz_sonic, zzz_lucent, zzz_investment, zzz_dynegy, zzz_ice, zzz_joe_lieberman,
+zzz_phil_mickelson, zzz_jennifer_capriati, zzz_slobodan_milosevic, zzz_radio, zz
+z_page, zzz_fusaichi_pegasus, zzz_luc_robitaille, zzz_roger_clemen, zzz_ron_harp
+er, zzz_felix_potvin
+Topic #9: zzz_ted_william, zzz_daniel_pearl, zzz_hamid_karzai, zzz_eric_gagne, z
+zz_jiang, zzz_dale_earnhardt, zzz_msn, zzz_vanguard, zzz_manny_ramirez, zzz_lenn
+ox_lewis, zzz_katherine_harris, zzz_john_rocker, zzz_jason_allison, zzz_falun_go
+ng, zzz_donald_trump, zzz_mormon, zzz_andy_pettitte, zzz_navajo, zzz_yasser_araf
+at, zzz_justin
+
+
+TensorLDA 
+
+Topic #0: company, million, percent, companies, stock, market, billion, business, shares, analyst, quarter, sales, deal, firm, chief, share, customer, investor, executive, cost
+Topic #1: team, game, season, play, player, games, point, coach, run, win, hit, played, won, left, yard, shot, ball, goal, guy, playing
+Topic #2: zzz_al_gore, zzz_bush, campaign, zzz_george_bush, president, percent, 
+election, republican, tax, political, vote, voter, democratic, zzz_white_house, presidential, zzz_republican, zzz_clinton, school, bill, zzz_senate
+Topic #3: percent, stock, market, million, quarter, company, billion, companies,
+ point, economy, fund, analyst, tax, rate, sales, cut, growth, investor, earning, zzz_al_gore
+Topic #4: com, web, www, information, question, newspaper, site, company, busine
+ss, zzz_eastern, daily, sport, commentary, mail, separate, online, spot, need, computer, copy
+Topic #5: zzz_held, guard, premature, publication, released, advisory, send, advise, zzz_boston_globe, zzz_istanbul, zzz_johannesburg, nyt, held, advance, zzz_jakarta, zzz_lexington, vacation, error, zzz_mesa, zzz_seoul
+Topic #6: file, zzz_boston_globe, tonight, spot, zzz_los_angeles_daily_new, slugged, zzz_new_york, zzz_xxx, earlier, article, zzz_x_x_x, today, incorrectly, zzz_holland, zzz_washington, sport, advise, com, error, misstated
+Topic #7: question, newspaper, copy, fall, zzz_diane, com, percent, kill, daily, zzz_eastern, information, sport, mandatory, commentary, palestinian, zzz_u_s, a
+ttack, zzz_israel, marked, separate
+Topic #8: test, zzz_houston_chronicle, school, zzz_seattle_post_intelligencer, s
+tudent, ignore, program, system, drug, teacher, point, testing, official, patien
+t, zzz_kansas_city, cancer, anthrax, doctor, result, wire
+Topic #9: file, zzz_new_york, sport, zzz_los_angeles, school, read, internet, no
+tebook, email, zzz_chuck, output, zzz_calif, wrote, book, student, copy, zzz_ana
+heim_angel, zzz_los_angeles_dodger, fall, zzz_diane
+
+
+LDA Online Variational     5 full iterations
+
+Topic #0: com, web, computer, information, site, mail, question, www, zzz_enron, online, daily, newspaper, sites, sport, user, internet, palm, game, zzz_internet, zzz_nfl
+Topic #1: team, game, season, player, play, games, point, run, win, won, coach, hit, right, left, guy, ball, shot, night, minutes, played
+Topic #2: zzz_united_states, zzz_u_s, government, official, military, country, war, zzz_american, zzz_afghanistan, zzz_china, zzz_taliban, attack, terrorist, nation, zzz_bush, leader, group, foreign, countries, forces
+Topic #3: campaign, zzz_bush, president, zzz_george_bush, zzz_al_gore, election, law, school, court, political, republican, vote, zzz_white_house, right, federal, democratic, bill, public, voter, zzz_senate
+Topic #4: film, show, look, movie, car, room, hour, home, water, night, house, set, place, part, big, high, town, find, small, zzz_new_york
+Topic #5: percent, company, million, companies, market, business, stock, billion, cost, money, industry, plan, firm, economy, customer, sales, analyst, pay, consumer, tax
+Topic #6: palestinian, zzz_israel, leader, peace, official, zzz_israeli, attack, government, israeli, zzz_yasser_arafat, violence, minister, war, israelis, talk, meeting, killed, group, zzz_bush, zzz_iraq
+Topic #7: family, book, women, school, father, children, friend, son, mother, wife, home, boy, parent, told, word, young, student, daughter, right, child
+Topic #8: music, show, book, art, human, artist, program, research, scientist, director, million, song, part, history, network, group, zzz_new_york, magazine, century, project
+Topic #9: drug, official, patient, doctor, found, case, police, death, problem, attack, medical, disease, officer, health, test, cell, study, hospital, trial, zzz_fbi
+
+
+
+nytimes with word "^econ"
+-------------------------
+
+ubuntu@ip-172-31-3-219:~/data$ egrep -n "^econ" vocab20k.nytimes.txt
+4817:economia
+4818:economic
+4819:economical
+4820:economically
+4821:economies
+4822:economist
+4823:economy
+
+docCount: ~52000
+
+scala> featuresDocsEcon.mapValues(_._2).reduceByKey(_ + _).toDF.stat.approxQuantile("_2", Array(.05, .25, .5, .75, .95), .1)
+2018-04-27 16:46:13 WARN  ObjectStore:568 - Failed to get database global_temp, returning NoSuchObjectException
+res1: Array[Double] = Array(12.0, 317.0, 376.0, 1593.0, 3586.0) 
+
+NMF
+
+Topic #0: zzz_tibetan, chess, zzz_enron, zzz_postal_service, yoga, everglades, z
+zz_vicente_fox, zzz_bill_bradley, zzz_athletic, zzz_broadband, catfish, zzz_lazio, zzz_betty, zzz_aid, zzz_prozac, zzz_richard_riordan, zzz_ziggy_palffy, zzz_labor_party, zzz_taiwan, zzz_black
+Topic #1: asbestos, zzz_polaroid, zzz_paper, zzz_tony_sanchez, zzz_michael_bloom
+berg, zzz_kursk, zzz_napster, zzz_port_authority, zzz_houston_astros, zzz_airbus, zzz_ariel_sharon, zzz_up, zzz_nih, zzz_joe_lieberman, zzz_elvis_presley, opium, zzz_slobodan_milosevic, zzz_hamburg, platinum, zzz_hillary_clinton
+Topic #2: zzz_hearst, zzz_venture, zzz_mark_green, placebo, zzz_old_city, zzz_jo
+hn_lennon, zzz_twa, zzz_stephen_ambrose, zzz_baseball, zzz_chelsea, zzz_environ$ental, zzz_amtrak, zzz_jack_welch, zzz_kmart, zzz_turner, zzz_coke, zzz_sega, z$z_joseph_lieberman, franc, zzz_bernie_william
+Topic #3: zzz_horace_grant, zzz_o_neill, zzz_alberto_fujimori, zzz_tobacco, zzz$
+chinese, zzz_rockefeller_center, zzz_lieberman, zzz_steel, zzz_miami_beach, zzz$
+pearl, zzz_farc, zzz_steeler, zzz_slobodan_milosevic, ant, zzz_mayor, zzz_pete_s
+ampras, asparagus, zzz_vanguard, zzz_gerald_ford, zzz_dalai_lama
+Topic #4: zzz_bob_knight, zzz_governor_bush, zzz_adolf_hitler, zzz_frankly, zzz_
+ice, biotech, zzz_matt_damon, zzz_whoopi_goldberg, zzz_dynegy, zzz_west_africa, 
+zzz_lennox_lewis, zzz_sonic, euro, zzz_tiananmen_square, zzz_arab, zzz_sun, zzz_
+guy, pope, comrade, zzz_xfl
+Topic #5: zzz_nuclear, zzz_barbara_bush, zzz_judges, zzz_rick_lazio, zzz_trade, 
+reef, zzz_hugo_chavez, zzz_john_mccain, zzz_backstreet, zzz_voting, zzz_arthur_a
+ndersen, zzz_vojislav_kostunica, zzz_sprint, zzz_palm_beach, zzz_elian, zzz_dutt
+on, zzz_tajikistan, zzz_haiti, zzz_american_indian, zzz_denzel_washington
+Topic #6: zzz_rudy_giuliani, zzz_laura_bush, zzz_david_letterman, zzz_walt_disne
+y, zzz_saddam, zzz_wireless, zzz_juan_gonzalez, zzz_hafez_assad, zzz_palestinian
+, zzz_bill_belichick, zzz_boeing, zzz_jiang, zzz_gore, zzz_pg, zzz_mayor, zzz_ca
+ncer, zzz_harper, zzz_rice, zzz_mohamed_atta, zzz_major_league
+Topic #7: zzz_edison, armenian, zzz_worldcom, butler, zzz_mark_cuban, zzz_john_r
+ocker, zzz_security, zzz_spike_lee, zzz_saturn, zzz_ernesto_zedillo, zzz_costa_r
+ica, zzz_chad, reactor, zzz_visa, zzz_marlin, tissue, zzz_abdullah, zzz_john_mad
+den, zzz_lapd, zzz_european
+Topic #8: zzz_rob_blake, zzz_bradley, zzz_basketball, zzz_putin, zzz_ted_turner,
+ zzz_modern_art, zzz_jason_kidd, zzz_mormon, zzz_public_health, zzz_east_jerusal
+em, zzz_military, zzz_nepal, zzz_nigeria, zzz_grace, zzz_pay, zzz_al_gore, zzz_j
+anet_reno, cork, zzz_lazio, zzz_whitman
+Topic #9: zzz_john_ashcroft, zzz_cable, zzz_pri, zzz_jeb_bush, zzz_generation, z
+zz_mike_tyson, zzz_steve_young, zzz_contemporary_art, zzz_bud_selig, zzz_donald_
+trump, shark, zzz_mobile, zzz_ariel_sharon, coca, zzz_port, zzz_west_texas, zzz_
+school_district, zzz_mexican, zzz_robert_mugabe, zzz_lucent
+
+TensorLDA  k = alpha0 = 10
+
+scala> alpha
+res3: breeze.linalg.DenseVector[Double] = DenseVector(1.8785624645297176, 1.2167
+457704443323, 0.5725042891016117, 0.3826835210635625, 0.3745911101413714, 0.2347
+9559118189383, 0.2292823223763619, 0.19794055595085364, 0.02894440018253049, 0.0
+08893709812713615)
+
+scala> breeze.linalg.sum(alpha)
+res5: Double = 5.1249437347849485
+
+Topic #0: government, zzz_united_states, zzz_china, official, zzz_u_s, country, 
+zzz_bush, leader, countries, military, political, administration, foreign, natio
+n, zzz_american, trade, zzz_russia, war, economic, president
+Topic #1: percent, job, school, worker, economy, business, com, student, rate, c
+ompanies, number, high, program, economist, women, growth, information, unemploy
+ment, employees, rates
+Topic #2: company, percent, million, companies, quarter, billion, analyst, stock
+, market, sales, share, business, earning, cent, industry, cost, profit, revenue
+, executive, chief
+Topic #3: percent, stock, market, economy, investor, point, companies, rates, zz
+z_fed, rate, index, prices, quarter, growth, earning, analyst, interest, zzz_nas
+daq, fund, fell
+Topic #4: zzz_bush, president, administration, tax, zzz_white_house, cut, zzz_un
+ited_states, zzz_u_s, zzz_congress, official, leader, zzz_washington, attack, zz
+z_clinton, plan, military, nation, zzz_al_gore, campaign, terrorist
+Topic #5: percent, quarter, sales, rate, economy, stock, growth, point, market, 
+million, fell, analyst, rose, index, earning, rates, increase, job, average, num
+ber
+Topic #6: zzz_al_gore, zzz_george_bush, campaign, president, election, voter, zz
+z_clinton, democratic, republican, political, presidential, zzz_bill_clinton, vo
+te, poll, zzz_republican, democrat, zzz_party, vice, candidate, candidates
+Topic #7: tax, cut, zzz_bush, billion, plan, spending, taxes, economy, bill, zzz_congress, income, money, zzz_social_security, surplus, zzz_white_house, federal, trillion, proposal, zzz_senate, zzz_democrat
+Topic #8: las, como, los, zzz_latin_trade, telefono, articulo, espanol, transmiten, fax, paises, del, articulos, una, sobre, zzz_america_latina, economia, notas, tiene, mundo, categorias
+Topic #9: sales, indicator, economic, claim, jobless, scheduled, dates, listed, major, weekly, consumer, order, leading, home, prices, construction, retail, price, spending, producer
+
+
+LDA Online Variational k = 10, alpha = beta = 1.0, 5 full iterations
+
+
+
+
+
+ubuntu@ip-172-31-3-219:~/data$ egrep -n "^chin" vocab20k.nytimes.txt
+2429:chin
+2430:china
+2431:chinese
