@@ -311,5 +311,211 @@ Topic #9: jazz, music, play, book, song, zzz_new_york, player, record, home, bus
 
 
 
+Simplewiki
+====================
+
+# Documents: ~211564                                                            
+2018-05-07 15:07:00 WARN  ObjectStore:568 - Failed to get database global_temp, returning NoSuchObjectException
+Qtl Dist Tokens By Doc: 1.0, 13.0, 57.0, 112.0, 3958.0                          
+Qtl Doc Length: 1.0, 7.0, 154.0, 19734.0, 50659.0      
+
+TensorLDA
+
+scala> alpha
+res5: breeze.linalg.DenseVector[Double] = DenseVector(0.5784936788798711, 0.381269505959315, 0.29489133772895015, 0.13789225662038876, 0.11641347581220798, 0.10540540201516986, 0.10314151836972246, 0.09757297468093228, 0.09538343801028053, 0.09477584196142558)
+
+scala> breeze.linalg.sum(alpha)
+res6: Double = 2.0052394300382637
+
+Topic #0: redirect, category, stub, ref, http, www, geo, 0, br, noinclude, us, n
+ame, 1, france, jpg, title, com, states, date, thumb
+Topic #1: commonscat, redirect, template, wikipedia, list, r, templates, infobox
+, language, movie, c, popes, interstate, data, internet, albums, f, uw, name, wo
+rld
+Topic #2: category, people, movies, american, commonscat, nationality, occupatio
+n, football, templates, entertainers, television, categories, actors, sports, sp
+ortspeople, 0, state, clean, parent, country
+Topic #3: commonscat, deaths, deathyr, user, category, births, birthyr, 1, 2, 3,
+ 4, 0, 5, 6, 7, 9, 8, century, bc, country
+Topic #4: 0, 1, 2, football, player, 3, league, br, statistics, club, c, rowspan
+, f, 4, 5, noinclude, birthyr, national, j, deathyr
+Topic #5: noinclude, documentation, 1, templates, flag, includeonly, name, templ
+ate, alias, doc, category, iso, 639, size, pagename, country, svg, conversion, 2
+, subpage
+Topic #6: states, kingdom, ref, template, 1, nations, http, www, noinclude, com,
+ name, wikipedia, 2, c, language, r, f, movie, title, 0
+Topic #7: france, communes, commune, geo, department, departments, stub, region,
+ found, regions, de, aisne, north, calvados, gironde, calais, pas, la, picardie,
+ d
+Topic #8: united, ref, template, 1, http, list, www, name, brazil, 2, mexico, no
+include, com, wikipedia, r, movie, de, language, title, 0
+Topic #9: category, united, states, us, city, cities, geo, stub, iowa, redirect,
+ county, towns, kentucky, illinois, kingdom, state, florida, virginia, idaho, ar
+kansas
+
+LDA
+
+Topic #0: 0, 1, 2, football, br, 3, 4, player, c, 5, club, statistics, 6, category, f, league, team, 7, national, rowspan
+Topic #1: ref, category, http, www, name, de, city, river, language, france, n, stub, jpg, country, title, people, district, sweden, file, area
+Topic #2: ref, http, name, category, www, united, states, title, cite, com, url, date, people, party, first, accessdate, web, publisher, new, news
+Topic #3: ref, span, title, style, color, user, talk, page, ucfirst, discussion, com, wwe, archive, http, middot, fullurl, url, wrestling, www, redirect
+Topic #4: b, d, category, american, ndash, name, redirect, end, ref, hurricane, 1, olympics, first, summer, year, german, image, world, storm, local
+Topic #5: category, ref, com, http, www, american, movie, br, name, date, title, url, music, cite, people, born, accessdate, television, web, new
+Topic #6: small, bgcolor, 0, county, 1, new, france, nbsp, 2, york, flagicon, ref, league, br, grand, 3, align, category, prix, saint
+Topic #7: user, font, talk, color, utc, span, style, wikipedia, b, sup, nbsp, template, page, article, special, 2009, nowiki, simple, small, 1
+Topic #8: align, center, style, text, ref, left, 2, 1, right, background, width, br, 3, 0, title, http, name, 5, 4, www
+Topic #9: ref, name, http, www, category, title, cite, jpg, used, url, also, file, com, thumb, first, one, journal, accessdate, publisher, web
 
 
+
+Economy/Economist-related
+---------------
+
+scala> Datasets.printBowStatistics(featuresEcon, Array(.05, .25, .5, .75, .95), .1, spark)
+# Documents: ~5035
+2018-05-07 17:00:37 WARN  ObjectStore:568 - Failed to get database global_temp, returning NoSuchObjectException
+Qtl Dist Tokens By Doc: 2.0, 174.0, 267.0, 685.0, 3958.0
+Qtl Doc Length: 2.0, 292.0, 423.0, 13513.0, 50659.0
+
+
+TensorLDA
+
+scala> alphaEcon
+res2: breeze.linalg.DenseVector[Double] = DenseVector(0.1689488740858642, 0.041082197867172814, 0.035617123390252546, 0.03297925987112382, 0.021692208146812553, 0.009626081390525376, 0.00923151394460828, 0.009137640199569431, 0.005027187928938381, 0.004012094609035215)
+
+scala> breeze.linalg.sum(alphaEcon)
+res3: Double = 0.33735418143390267
+
+
+Topic #0: ndash, b, d, american, actor, politician, actress, singer, german, english, french, footballer, player, writer, british, economists, italian, presiden
+t, john, director
+Topic #1: category, united, states, economy, country, america, commonscat, kingd
+om, north, redirect, economists, transport, american, economic, 1920s, class, e$onomies, government, state, us
+Topic #2: category, economics, redirect, commonscat, nobel, prize, cat, good, winners, main, list, economic, social, home, economists, policy, models, markets,
+theories, books
+Topic #3: category, ref, b, d, competition, name, depression, home, commerce, capitalism, title, ndash, cite, http, business, countries, url, r, www, world
+Topic #4: category, economy, redirect, country, companies, commonscat, asia, europe, class, transport, continent, economies, america, command, south, currency, north, africa, germany, india
+Topic #5: economics, class, command, country, continent, economists, economies, ref, experience, asia, www, http, oceania, development, africa, australia, name, europe, de, com
+Topic #6: commonscat, cat, main, books, policy, stub, markets, models, theories, people, economists, systems, university, http, ref, history, redirect, crime, social, life
+Topic #7: commonscat, redirect, currency, stub, american, policy, theories, models, books, markets, ref, history, crime, people, http, companies, military, systems, party, www
+Topic #8: economy, commonscat, home, good, competition, depression, models, books, theories, markets, categories, parent, policy, history, school, party, london, spelling, side, r
+Topic #9: economy, redirect, class, economic, command, economics, experience, zone, exclusive, index, development, depression, organisation, operation, companies, co, competition, home, list, germany
+
+
+LDA Online Variational
+
+Topic #0: beenonmainpage, fa, ref, com, http, belgianmunicipality, eco, www, alexa, nts, 13, dts, united, 11, traffic, siteinfo, details, open, 12, 2011
+Topic #1: born, new, jersey, actor, texas, austen, singer, actress, player, ref, b, york, col, football, div, film, american, jane, city, rockefeller
+Topic #2: b, find, word, replace, typo, 2, 1, e, ing, z, 0, w, d, n, chicago, 999, cc, aa, ref, ss
+Topic #3: align, ref, 1, center, city, 2, http, right, name, flag, small, 0, left, style, br, nbsp, title, www, web, province
+Topic #4: b, born, user, d, medicine, physiology, talk, style, chemistry, ref, physics, american, utc, category, 1, align, font, literature, 2, color
+Topic #5: ref, american, b, d, http, ndash, www, com, united, news, first, states, president, category, actor, title, dies, politician, cite, people
+Topic #6: li, em, 39, angela, user, deleted, 91, 2004, content, netoholic, 18, dec, 2003, talk, redirect, category, simonmayer, 02, http, delete
+Topic #7: airport, international, talk, ref, user, asthma, category, beenonmainpage, utc, http, name, airlines, www, may, 2013, br, fa, one, people, span
+Topic #8: nowrap, per, default, scale, utype, symbol, link, name1, dts, states, http, ref, army, episode, sortname, united, chyna, chart, name2, 1
+Topic #9: template, ref, user, font, talk, name, color, title, http, utc, www, cite, url, style, span, people, com, date, accessdate, publisher
+
+
+China-related
+------------------
+scala> Datasets.printBowStatistics(featuresChina, Array(.05, .25, .5, .75, .95), .1, spark)
+# Documents: ~6105
+Qtl Dist Tokens By Doc: 2.0, 125.0, 322.0, 1707.0, 3903.0
+Qtl Doc Length: 2.0, 205.0, 477.0, 1857.0, 50659.0
+
+Tensor LDA
+
+scala> alphaChina
+res8: breeze.linalg.DenseVector[Double] = DenseVector(2.112553014568355, 0.23252054228943547, 0.19977744079679852, 0.05678085689032803, 0.03968394815777506, 0.00529098410337452, 0.0028775704576025226, 0.002501589938905237, 0.0015289816411982564, 9.861908466582286E-4)
+
+scala> breeze.linalg.sum(alphaChina)
+res9: Double = 2.654501119690431
+
+Topic #0: ref, http, www, com, name, title, cite, url, accessdate, web, publisher, date, news, html, references, org, reflist, https, books, p
+Topic #1: ndash, b, d, american, actor, politician, singer, actress, english, german, footballer, french, writer, player, british, president, emperor, king, italian, ii
+Topic #2: br, align, small, bgcolor, center, 0, 1, 2, prix, style, grand, left, flag, 3, flagicon, 4, background, cfcfff, rowspan, 5
+Topic #3: china, chinese, zh, language, name, flag, ref, noinclude, hans, iso, 6
+39, lang, taipei, river, american, 1, simplified, title, http, taiwan
+Topic #4: zh, chinese, noinclude, lang, hans, name, county, iso, 639, district, flag, category, people, city, simplified, template, traditional, conversion, doc, republic
+Topic #5: chinese, china, republic, languages, asia, provinces, emperors, countr
+y, lang, cities, commonscat, ref, english, city, district, hong, kong, buildings
+, geography, province
+Topic #6: redirect, flag, people, category, country, province, asia, ref, county
+, languages, english, taiwan, svg, counties, city, united, noinclude, day, natio
+nal, d
+Topic #7: china, language, chinese, category, commonscat, nationality, hong, kon
+g, characters, occupation, music, singers, zh, culture, provinces, asian, beijin
+g, cat, actors, writers
+Topic #8: redirect, republic, flag, people, list, data, country, political, chin
+a, divisions, template, national, county, counties, province, river, noinclude, 
+emperors, day, svg
+Topic #9: language, characters, zodiac, han, cat, history, mandarin, year, templ
+ate, super, league, new, dolphin, name, simplified, dynasties, chess, mythology,
+ dragon, problem
+
+
+Online Variational
+
+Topic #0: b, word, find, replace, typo, 2, wrap, e, 1, z, bridge, d, r, ing, n, w, 0, aa, c, 999
+Topic #1: d, b, american, ndash, actor, politician, english, singer, united, actress, german, player, french, british, president, born, footballer, writer, states, war
+Topic #2: nowrap, united, states, army, sortname, sort, dts, navy, center, ref, e, honor, marine, private, first, medal, style, background, corps, jpg
+Topic #3: ref, user, http, www, talk, com, font, title, name, cite, color, url, utc, span, accessdate, web, date, publisher, style, 1
+Topic #4: link, airport, file, language, languages, airlines, flight, size, line, air, international, 2, svg, bull, alt, px, boeing, ref, board, metro
+Topic #5: image, nowiki, jpg, ticker, type, id, flag, timestamp, page, editor, name, svg, user, label, usage, description, status, end, tickerentry, update
+Topic #6: ref, china, language, http, name, 1, city, flag, category, www, 2, people, 0, chinese, title, republic, web, br, url, cite
+Topic #7: bgcolor, br, small, align, grand, prix, style, flagicon, 2, 0, center, cfcfff, 1, 3, background, ret, left, efcfff, rowspan, dfffdf
+Topic #8: align, right, center, river, ref, text, name, style, br, chinese, width, fb, includeonly, 1, jpg, flagicon, 50, rural, 2, 000
+Topic #9: fa, beenonmainpage, flag, left, align, est, 2011, small, talk, nbsp, user, records, 2010, href, nts, utc, 1, td, font, 2
+
+
+
+Jazz/Blues-related
+---------------------
+
+scala> Datasets.printBowStatistics(featuresMusic, Array(.05, .25, .5, .75, .95), .1, spark)
+# Documents: ~2690                                                              
+Qtl Dist Tokens By Doc: 2.0, 146.0, 285.0, 1565.0, 3958.0                       
+Qtl Doc Length: 2.0, 233.0, 629.0, 5954.0, 31553.0   
+
+
+Tensor LDA
+
+scala> alphaMusic
+res15: breeze.linalg.DenseVector[Double] = DenseVector(0.7703258343831451, 0.32119701182836446, 0.08561663008147719, 0.04997825390849591, 0.008806204163154922, 0.006404988589273167, 0.0014622231791618268, 8.219101434667569E-4, 3.5367282199432094E-4, 2.4144427831751506E-4)
+
+scala> breeze.linalg.sum(alphaMusic)
+res16: Double = 1.2452081733768512
+
+Topic #0: b, d, american, actor, politician, actress, footballer, german, english, french, writer, singer, player, r, ndash, president, italian, british, war, director
+Topic #1: br, records, rock, album, band, category, small, label, albums, artist, infobox, genre, groups, single, background, released, musical, song, years_active, name
+Topic #2: ndash, d, b, american, politician, actor, german, actress, english, footballer, french, film, writer, singer, british, player, italian, war, president
+, 2014
+Topic #3: align, center, small, left, 2, 1, bgcolor, 3, style, top, width, valig
+n, 0, 5, colspan, 4, text, rowspan, chart, 7
+Topic #4: redirect, blues, b, rock, louis, st, hockey, albums, rhythm, nhl, br, players, d, music, league, r, brothers, ref, ice, list
+Topic #5: jazz, musicians, category, commonscat, genre, composers, airline, wrestler, pianists, singers, movie, defaultsort, 1927, deaths, ndash, instruments, s
+inger, born, births, film
+Topic #6: blues, redirect, rhythm, music, brothers, rock, punk, scale, jazz, tex
+as, image, genres, category, british, louis, st, list, albums, airline, wrestler
+Topic #7: category, music, musicians, albums, jazz, genre, american, commonscat,
+ hockey, nhl, defaultsort, singers, r, musical, stub, births, league, composers,
+ bands, people
+Topic #8: category, musicians, american, hockey, nhl, genre, born, commonscat, l
+eague, singers, season, ref, defaultsort, births, com, deaths, http, new, compos
+ers, ice
+Topic #9: blues, redirect, rhythm, brothers, rock, punk, scale, texas, image, br
+itish, list, wrestler, airline, louis, st, genres, harmonica, records, 1927, alb
+um
+
+Online Variational
+
+Topic #0: ndash, b, american, d, john, movie, actor, singer, politician, german, english, actress, writer, french, footballer, british, war, player, james, italian
+Topic #1: hs, ndash, ref, american, accessdate, category, publishdate, date, d, http, url, refname, www, b, publisher, title, tag, artist, 2012, location
+Topic #2: records, ref, american, recordings, http, d, b, music, www, category, united, com, born, chicago, user, label, center, font, record, div
+Topic #3: align, center, color, user, talk, font, style, span, small, utc, born, left, b, 1, 2, article, background, sup, 2008, new
+Topic #4: align, nhl, bgcolor, 1, season, 2, 3, center, 4, 5, width, hockey, 0, ddddff, new, 7, ice, left, cup, rd1
+Topic #5: ref, align, b, d, 000, left, category, american, name, http, divisi, music, br, www, segunda, c, liga, center, blues, rock
+Topic #6: ref, american, b, d, http, www, com, cite, title, url, actor, accessdate, style, born, first, film, singer, web, news, name
+Topic #7: ref, nbsp, http, www, com, american, dts, format, dies, y, news, b, voice, born, role, d, html, category, icon, user
+Topic #8: name1, name3, ffffff, edu, manual, pdf, brand, cite, name2, guide, identity, university, standards, colors, 000000, accessdate, blue, guidelines, 2016, url
+Topic #9: template, music, category, album, doc, ref, rock, br, band, image, name, song, records, http, small, blues, www, albums, com, title
