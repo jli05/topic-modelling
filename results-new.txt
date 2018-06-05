@@ -1,0 +1,532 @@
+nytimes
+---------
+
+docCount = 299650
+scala> features.mapValues(_ => 1).reduceByKey(_ + _).toDF.stat.approxQuantile("_2", Array(.05, .25, .5, .75, .95), .1)
+res7: Array[Double] = Array(1.0, 181.0, 237.0, 1117.0, 1778.0)
+scala> docLenDF.stat.approxQuantile("_2", Array(.05, .25, .5, .75, .95), .1)
+res11: Array[Double] = Array(1.0, 217.0, 308.0, 1554.0, 3586.0)                 
+
+TensorLDA 
+
+scala> alpha
+res9: breeze.linalg.DenseVector[Double] = DenseVector(0.5712524273600563, 0.4922006263669619, 0.4757490530587683, 0.21466749125354498, 0.18738793818630645, 0.003509294937822114, 0.0020329980548849584, 0.0014196521138293498, 4.8132244041216996E-4, 2.784280980951145E-4)
+
+scala> breeze.linalg.sum(alpha)
+res10: Double = 1.9489792318706816
+
+Topic #0: court, case, law, lawyer, official, federal, government, police, trial
+, drug, death, judge, attorney, decision, prosecutor, cases, officer, legal, inv
+estigation, ruling
+Topic #1: palestinian, official, zzz_israel, attack, zzz_bush, zzz_united_states
+, government, military, zzz_u_s, leader, zzz_israeli, war, terrorist, zzz_yasser
+_arafat, zzz_afghanistan, peace, zzz_taliban, zzz_american, security, administra
+tion
+Topic #2: company, companies, stock, million, percent, market, business, analyst
+, billion, executive, firm, chief, deal, quarter, investor, customer, sales, sha
+re, zzz_enron, shares
+Topic #3: zzz_al_gore, zzz_george_bush, campaign, president, election, zzz_bush,
+ republican, voter, vote, political, democratic, presidential, zzz_republican, z
+zz_clinton, ballot, votes, democrat, zzz_white_house, candidate, race
+Topic #4: school, student, teacher, program, children, parent, high, education, 
+percent, public, district, college, kid, test, class, child, boy, system, comput
+er, job
+Topic #5: percent, stock, market, quarter, point, economy, rate, sales, women, f
+und, billion, growth, analyst, rates, earning, prices, economic, investor, compa
+nies, average
+Topic #6: run, inning, hit, game, season, home, games, zzz_dodger, right, left,
+start, ball, pitch, pitcher, yankees, homer, manager, ranger, field, lead
+Topic #7: com, information, www, web, site, question, zzz_eastern, daily, sport,
+ commentary, newspaper, separate, business, marked, holiday, today, spot, mail,
+need, reach
+Topic #8: million, shares, offering, debt, money, public, billion, initial, bond
+, zzz_new_york, percent, revenue, contract, tax, expected, deal, quarter, securi
+ties, bill, company
+Topic #9: con, una, las, como, mas, por, los, dice, anos, zzz_latin_trade, sus,
+sobre, articulo, tiene, telefono, fax, millones, otros, paises, ciento
+
+
+LDA Online Variational     5 full iterations
+
+Topic #0: com, web, computer, information, site, mail, question, www, zzz_enron, online, daily, newspaper, sites, sport, user, internet, palm, game, zzz_internet, zzz_nfl
+Topic #1: team, game, season, player, play, games, point, run, win, won, coach, hit, right, left, guy, ball, shot, night, minutes, played
+Topic #2: zzz_united_states, zzz_u_s, government, official, military, country, war, zzz_american, zzz_afghanistan, zzz_china, zzz_taliban, attack, terrorist, nation, zzz_bush, leader, group, foreign, countries, forces
+Topic #3: campaign, zzz_bush, president, zzz_george_bush, zzz_al_gore, election, law, school, court, political, republican, vote, zzz_white_house, right, federal, democratic, bill, public, voter, zzz_senate
+Topic #4: film, show, look, movie, car, room, hour, home, water, night, house, set, place, part, big, high, town, find, small, zzz_new_york
+Topic #5: percent, company, million, companies, market, business, stock, billion, cost, money, industry, plan, firm, economy, customer, sales, analyst, pay, consumer, tax
+Topic #6: palestinian, zzz_israel, leader, peace, official, zzz_israeli, attack, government, israeli, zzz_yasser_arafat, violence, minister, war, israelis, talk, meeting, killed, group, zzz_bush, zzz_iraq
+Topic #7: family, book, women, school, father, children, friend, son, mother, wife, home, boy, parent, told, word, young, student, daughter, right, child
+Topic #8: music, show, book, art, human, artist, program, research, scientist, director, million, song, part, history, network, group, zzz_new_york, magazine, century, project
+Topic #9: drug, official, patient, doctor, found, case, police, death, problem, attack, medical, disease, officer, health, test, cell, study, hospital, trial, zzz_fbi
+
+
+
+nytimes with word "^econ"
+-------------------------
+
+ubuntu@ip-172-31-3-219:~/data$ egrep -n "^econ" vocab20k.nytimes.txt
+4817:economia
+4818:economic
+4819:economical
+4820:economically
+4821:economies
+4822:economist
+4823:economy
+
+docCount: ~52000
+scala> featuresEcon.mapValues(_ => 1).reduceByKey(_ + _).toDF.stat.approxQuantile("_2", Array(.05, .25, .5, .75, .95), .1)
+2018-04-30 17:21:07 WARN  ObjectStore:6666 - Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 1.2.0
+2018-04-30 17:21:07 WARN  ObjectStore:568 - Failed to get database default, returning NoSuchObjectException
+2018-04-30 17:21:08 WARN  ObjectStore:568 - Failed to get database global_temp, returning NoSuchObjectException
+res6: Array[Double] = Array(12.0, 235.0, 252.0, 327.0, 1778.0)
+scala> featuresDocsEcon.mapValues(_._2).reduceByKey(_ + _).toDF.stat.approxQuantile("_2", Array(.05, .25, .5, .75, .95), .1)
+2018-04-27 16:46:13 WARN  ObjectStore:568 - Failed to get database global_temp, returning NoSuchObjectException
+res1: Array[Double] = Array(12.0, 317.0, 376.0, 1593.0, 3586.0) 
+
+
+TensorLDA  k = alpha0 = 10
+
+scala> alpha
+res3: breeze.linalg.DenseVector[Double] = DenseVector(1.8785624645297176, 1.2167
+457704443323, 0.5725042891016117, 0.3826835210635625, 0.3745911101413714, 0.2347
+9559118189383, 0.2292823223763619, 0.19794055595085364, 0.02894440018253049, 0.0
+08893709812713615)
+
+scala> breeze.linalg.sum(alpha)
+res5: Double = 5.1249437347849485
+
+Topic #0: government, zzz_united_states, zzz_china, official, zzz_u_s, country, 
+zzz_bush, leader, countries, military, political, administration, foreign, natio
+n, zzz_american, trade, zzz_russia, war, economic, president
+Topic #1: percent, job, school, worker, economy, business, com, student, rate, c
+ompanies, number, high, program, economist, women, growth, information, unemploy
+ment, employees, rates
+Topic #2: company, percent, million, companies, quarter, billion, analyst, stock
+, market, sales, share, business, earning, cent, industry, cost, profit, revenue
+, executive, chief
+Topic #3: percent, stock, market, economy, investor, point, companies, rates, zz
+z_fed, rate, index, prices, quarter, growth, earning, analyst, interest, zzz_nas
+daq, fund, fell
+Topic #4: zzz_bush, president, administration, tax, zzz_white_house, cut, zzz_un
+ited_states, zzz_u_s, zzz_congress, official, leader, zzz_washington, attack, zz
+z_clinton, plan, military, nation, zzz_al_gore, campaign, terrorist
+Topic #5: percent, quarter, sales, rate, economy, stock, growth, point, market, 
+million, fell, analyst, rose, index, earning, rates, increase, job, average, num
+ber
+Topic #6: zzz_al_gore, zzz_george_bush, campaign, president, election, voter, zz
+z_clinton, democratic, republican, political, presidential, zzz_bill_clinton, vo
+te, poll, zzz_republican, democrat, zzz_party, vice, candidate, candidates
+Topic #7: tax, cut, zzz_bush, billion, plan, spending, taxes, economy, bill, zzz_congress, income, money, zzz_social_security, surplus, zzz_white_house, federal, trillion, proposal, zzz_senate, zzz_democrat
+Topic #8: las, como, los, zzz_latin_trade, telefono, articulo, espanol, transmiten, fax, paises, del, articulos, una, sobre, zzz_america_latina, economia, notas, tiene, mundo, categorias
+Topic #9: sales, indicator, economic, claim, jobless, scheduled, dates, listed, major, weekly, consumer, order, leading, home, prices, construction, retail, price, spending, producer
+
+
+LDA Online Variational k = 10, alpha = beta = 1.0, 10 full iterations
+
+Topic #0: zzz_enron, bill, prices, oil, million, percent, market, company, progr
+am, price, farmer, farm, industry, federal, law, companies, barrel, zzz_congress
+, production, states
+Topic #1: las, con, los, como, una, zzz_latin_trade, fax, por, mas, telefono, di
+ce, articulo, million, espanol, paises, sobre, transmiten, economia, articulos, 
+financial
+Topic #2: percent, tax, economy, stock, market, cut, economic, billion, rate, sp
+ending, rates, growth, quarter, economist, companies, point, interest, fund, mon
+ey, investor
+Topic #3: palestinian, zzz_israel, drug, percent, official, government, group, m
+illion, plan, patient, peace, doctor, israeli, care, zzz_yasser_arafat, black, h
+ealth, right, zzz_clinton, zzz_israeli
+Topic #4: car, company, zzz_microsoft, system, industry, percent, market, power,
+ airline, cost, passenger, flight, companies, million, economy, business, seat, 
+airlines, sales, price
+Topic #5: com, school, book, home, show, look, american, family, women, student,
+ question, children, zzz_washington, beach, palm, daily, zzz_new_york, high, pla
+ce, room
+Topic #6: government, zzz_united_states, country, zzz_u_s, official, zzz_china, 
+economic, countries, zzz_bush, zzz_american, military, nation, leader, war, fore
+ign, political, attack, president, zzz_russia, power
+Topic #7: company, companies, million, percent, business, market, industry, job,
+ firm, zzz_internet, money, customer, high, sales, technology, computer, executi
+ve, web, deal, team
+Topic #8: energy, plant, water, gas, million, power, fuel, official, oil, plan, 
+percent, industry, worker, problem, zzz_bush, environmental, project, cost, admi
+nistration, companies
+Topic #9: zzz_george_bush, zzz_al_gore, president, campaign, election, political
+, zzz_bush, democratic, republican, vote, voter, zzz_white_house, leader, zzz_cl
+inton, presidential, government, public, school, zzz_republican, right
+
+
+nytimes  "(china|chinese)"
+-----------------------------
+
+ubuntu@ip-172-31-3-219:~/data$ egrep -n "^chin" vocab20k.nytimes.txt
+2429:chin
+2430:china
+2431:chinese
+
+scala> featuresChina.keys.countApproxDistinct(.1)
+res12: Long = 8583
+scala> features.mapValues(_ => 1).reduceByKey(_ + _).toDF.stat.approxQuantile("_2", Array(.05, .25, .5, .75, .95), .1)
+res13: Array[Double] = Array(1.0, 181.0, 235.0, 872.0, 1778.0)                  
+
+scala> features.mapValues(_._2).reduceByKey(_ + _).toDF.stat.approxQuantile("_2", Array(.05, .25, .5, .75, .95), .1)
+res14: Array[Double] = Array(1.0, 280.0, 314.0, 1358.0, 3586.0)
+
+Tensor LDA
+
+scala> alpha2
+res1: breeze.linalg.DenseVector[Double] = DenseVector(0.6854054418531816, 0.5086368006243479, 0.3435868438264904, 0.34117738329626024, 0.2763774986071855, 0.23539786621922004, 0.18539976127705973, 0.1726040844314836, 0.16045620820096151, 0.
+09533873201976893)
+
+scala> breeze.linalg.sum(alpha2)
+res2: Double = 3.00438062035596
+
+Topic #0: zzz_china, chinese, zzz_beijing, trade, zzz_united_states, zzz_taiwan,
+ government, market, zzz_american, zzz_u_s, relation, zzz_hong_kong, right, offi
+cial, companies, foreign, country, missile, economic, leader
+Topic #1: chinese, government, zzz_china, official, zzz_hong_kong, zzz_beijing, 
+zzz_lee, zzz_falun_gong, case, group, law, police, zzz_party, security, leader, 
+political, nuclear, secret, zzz_fbi, information
+Topic #2: company, percent, zzz_china, market, companies, million, zzz_hong_kong
+, business, government, stock, billion, zzz_internet, analyst, investment, forei
+gn, industry, shares, web, chinese, investor
+Topic #3: zzz_china, trade, right, zzz_clinton, zzz_bush, vote, president, zzz_c
+ongress, relation, zzz_beijing, bill, zzz_white_house, leader, zzz_american, zzz
+_united_states, human, administration, member, political, permanent
+Topic #4: zzz_china, zzz_bush, missile, zzz_united_states, defense, nuclear, zzz
+_russia, system, administration, weapon, zzz_u_s, military, official, zzz_americ
+an, zzz_taiwan, missiles, arm, security, zzz_washington, zzz_north_korea
+Topic #5: japanese, zzz_japan, korean, zzz_north_korea, percent, zzz_sou[7/1986]
+, zzz_north, country, zzz_china, war, group, government, asian, zzz_north_korean
+, visit, chinese, american, countries, zzz_united_states, school
+Topic #6: team, games, zzz_olympic, player, game, medal, women, won, play, zzz_n
+ba, gold, sport, coach, american, win, rocket, athletes, season, soccer, draft
+Topic #7: chinese, plane, zzz_u_s, zzz_china, crew, official, zzz_bush, zzz_unit
+ed_states, pilot, member, military, zzz_beijing, aircraft, zzz_american, collisi
+on, spy, jet, american, incident, meeting
+Topic #8: cup, tablespoon, add, oil, sauce, minutes, teaspoon, pepper, water, su
+gar, food, chicken, garlic, fresh, serving, onion, chopped, large, cooking, fat
+Topic #9: zzz_taiwan, zzz_china, zzz_beijing, zzz_party, mainland, military, nat
+ionalist, independence, island, chinese, zzz_lee, president, election, taiwanese
+, zzz_united_states, official, government, policy, leader, zzz_taipei
+
+
+LDA Online Variational      10 full iterations
+
+Topic #0: zzz_china, chinese, official, government, million, zzz_united_states, zzz_bush, right, company, market, zzz_u_s, leader, book, part, home, zzz_beijing
+, open, family, american, show
+Topic #1: cup, minutes, add, oil, tablespoon, food, sauce, water, teaspoon, restaurant, pepper, fresh, large, sugar, hour, cooking, taste, serving, fat, egg
+Topic #2: zzz_china, chinese, official, zzz_bush, zzz_united_states, right, zzz_american, president, political, country, government, military, zzz_beijing, part
+, war, need, zzz_taiwan, home, administration, leader
+Topic #3: zzz_china, chinese, zzz_united_states, government, official, group, right, zzz_beijing, zzz_taiwan, military, american, percent, zzz_u_s, put, part, s
+how, family, high, president, member
+Topic #4: zzz_china, chinese, zzz_united_states, official, government, zzz_u_s, group, zzz_clinton, home, zzz_american, missile, zzz_russia, computer, called, s
+ystem, zzz_bush, american, zzz_washington, million, high
+Topic #5: zzz_china, chinese, zzz_taiwan, zzz_united_states, government, america
+n, official, com, zzz_u_s, zzz_kmart, zzz_bush, zzz_beijing, right, company, zzz
+_washington, show, zzz_boeing, market, school, million
+Topic #6: zzz_china, zzz_bush, chinese, percent, palestinian, market, million, z
+zz_japan, american, country, companies, zzz_u_s, zzz_israeli, official, zzz_unit
+ed_states, japanese, company, part, government, right
+Topic #7: hair, love, makeup, actress, wear, look, dress, chinese, beauty, gown,
+ show, artist, women, stylist, zzz_oscar, black, simple, red, zzz_china, right
+Topic #8: zzz_china, chinese, government, official, zzz_united_states, zzz_u_s,
+country, american, zzz_american, million, zzz_beijing, right, zzz_bush, zzz_taiw
+an, group, president, home, percent, show, part
+Topic #9: zzz_china, chinese, zzz_enron, trade, zzz_party, zzz_clinton, zzz_unit
+ed_states, power, right, zzz_american, government, political, zzz_u_s, president
+, zzz_third_world, zzz_america, democratic, million, leader, zzz_jiang
+
+
+nytimes "(jazz|blues)"
+-----------------------------
+
+scala> featuresMusic.keys.countApproxDistinct(.1)
+res15: Long = 5201                                                              
+
+scala> featuresMusic.mapValues(_ => 1).reduceByKey(_ + _).toDF.stat.approxQuanti
+le("_2", Array(.05, .25, .5, .75, .95), .1)
+2018-05-01 16:05:49 WARN  ObjectStore:6666 - Version information not found in me
+tastore. hive.metastore.schema.verification is not enabled so recording the sche
+ma version 1.2.0
+2018-05-01 16:05:49 WARN  ObjectStore:568 - Failed to get database default, retu
+rning NoSuchObjectException
+2018-05-01 16:05:50 WARN  ObjectStore:568 - Failed to get database global_temp, 
+returning NoSuchObjectException
+res16: Array[Double] = Array(20.0, 216.0, 318.0, 933.0, 1223.0)
+
+scala> featuresMusic.mapValues(_._2).reduceByKey(_ + _).toDF.stat.approxQuantile("_2", Array(.05, .25, .5, .75, .95), .1)
+res17: Array[Double] = Array(25.0, 287.0, 344.0, 1310.0, 2000.0)
+
+TensorLDA
+
+scala> alpha3
+res10: breeze.linalg.DenseVector[Double] = DenseVector(1.4374482657218197, 0.69$
+4546956715072, 0.4462663141326511, 0.3886023895164989, 0.3809961733483499, 0.295
+37741072048423, 0.2437326598494902, 0.2317488678192665, 0.22463076344112448, 0.1
+197075511579679)
+
+scala> breeze.linalg.sum(alpha3)
+res11: Double = 4.467965091379161
+
+scala> alpha3.min / alpha3.max
+res12: Double = 0.08327781528739493
+
+Topic #0: million, team, season, com, player, percent, radio, station, c[20/350]
+game, games, web, record, president, music, deal, zzz_nba, companies, money, show
+Topic #1: song, album, music, band, singer, record, pop, rock, track, blues, gui
+tar, hit, sound, artist, recording, label, sing, voice, show, soul
+Topic #2: band, jazz, played, album, playing, music, group, play, musician, song
+, zzz_new_york, guitar, record, sound, rock, tour, player, died, blues, drummer
+Topic #3: music, song, jazz, musician, musical, sound, concert, radio, band, rec
+ord, composer, station, artist, rock, dance, country, classical, pop, album, rec
+ording
+Topic #4: show, musical, zzz_broadway, zzz_nbc, network, theater, series, televi
+sion, zzz_cb, night, zzz_abc, director, producer, season, zzz_new_york, producti
+on, dance, award, audience, cast
+Topic #5: team, game, point, season, play, games, zzz_laker, player, zzz_utah, z
+zz_nba, playoff, coach, win, zzz_maverick, shot, guard, jazz, minutes, league, g
+uy
+Topic #6: jazz, music, musician, album, zzz_new_york, band, pianist, record, rec
+ording, book, played, playing, singer, group, zzz_lincoln_center, art, zzz_festi
+val, label, piano, recorded
+Topic #7: film, movie, movies, director, actor, character, musical, screen, play
+, zzz_hollywood, minutes, zzz_oscar, starring, zzz_dvd, blonde, played, document
+ary, comedy, role, zzz_woody_allen
+Topic #8: con, www, una, mas, como, fax, las, telefono, album, hotel, sobre, mus
+ical, dice, com, jazz, informacion, los, esta, uno, parte
+Topic #9: www, com, site, web, tour, visit, information, room, offer, event, tel
+egram, newspaper, org, track, online, hotel, chat, fax, blues, daily
+
+
+LDA Online Variational 10 full iterations
+
+Topic #0: team, game, season, point, player, play, games, zzz_laker, coach, jazz
+, zzz_nba, win, shot, zzz_utah, playoff, guy, home, won, league, night
+Topic #1: music, jazz, song, blues, album, play, team, night, com, show, look, m
+usical, player, film, black, room, season, part, won, record
+Topic #2: music, show, jazz, song, team, look, part, zzz_new_york, blues, play, 
+night, home, women, book, singer, called, album, point, friend, black
+Topic #3: music, song, jazz, album, show, band, musical, sound, record, play, si
+nger, artist, blues, pop, musician, rock, group, set, recording, look
+Topic #4: palm, beach, daily, book, com, zzz_washington, statesman, question, lo
+ok, american, dayton, lifestyle, zzz_bush, zzz_dayton, austin, show, fashion, sp
+ort, zzz_fla, war
+Topic #5: com, jazz, www, room, american, million, art, percent, book, home, bui
+lding, place, site, information, restaurant, history, company, offer, web, black
+Topic #6: music, album, jazz, band, con, song, como, mas, las, una, fax, rock, s
+ound, pop, musician, telefono, group, show, com, www
+Topic #7: jazz, music, show, play, song, season, look, band, com, night, film, book, team, big, game, high, won, home, set, right
+Topic #8: film, movie, show, jazz, music, friend, school, look, director, home, book, zzz_new_york, hour, family, play, black, character, night, women, young
+Topic #9: jazz, music, play, book, song, zzz_new_york, player, record, home, business, com, set, high, show, point, million, right, season, game, group
+
+
+
+
+Simplewiki
+====================
+
+# Documents: ~211564                                                            
+2018-05-07 15:07:00 WARN  ObjectStore:568 - Failed to get database global_temp, returning NoSuchObjectException
+Qtl Dist Tokens By Doc: 1.0, 13.0, 57.0, 112.0, 3958.0                          
+Qtl Doc Length: 1.0, 7.0, 154.0, 19734.0, 50659.0      
+
+TensorLDA
+
+scala> alpha
+res5: breeze.linalg.DenseVector[Double] = DenseVector(0.5784936788798711, 0.381269505959315, 0.29489133772895015, 0.13789225662038876, 0.11641347581220798, 0.10540540201516986, 0.10314151836972246, 0.09757297468093228, 0.09538343801028053, 0.09477584196142558)
+
+scala> breeze.linalg.sum(alpha)
+res6: Double = 2.0052394300382637
+
+Topic #0: redirect, category, stub, ref, http, www, geo, 0, br, noinclude, us, n
+ame, 1, france, jpg, title, com, states, date, thumb
+Topic #1: commonscat, redirect, template, wikipedia, list, r, templates, infobox
+, language, movie, c, popes, interstate, data, internet, albums, f, uw, name, wo
+rld
+Topic #2: category, people, movies, american, commonscat, nationality, occupatio
+n, football, templates, entertainers, television, categories, actors, sports, sp
+ortspeople, 0, state, clean, parent, country
+Topic #3: commonscat, deaths, deathyr, user, category, births, birthyr, 1, 2, 3,
+ 4, 0, 5, 6, 7, 9, 8, century, bc, country
+Topic #4: 0, 1, 2, football, player, 3, league, br, statistics, club, c, rowspan
+, f, 4, 5, noinclude, birthyr, national, j, deathyr
+Topic #5: noinclude, documentation, 1, templates, flag, includeonly, name, templ
+ate, alias, doc, category, iso, 639, size, pagename, country, svg, conversion, 2
+, subpage
+Topic #6: states, kingdom, ref, template, 1, nations, http, www, noinclude, com,
+ name, wikipedia, 2, c, language, r, f, movie, title, 0
+Topic #7: france, communes, commune, geo, department, departments, stub, region,
+ found, regions, de, aisne, north, calvados, gironde, calais, pas, la, picardie,
+ d
+Topic #8: united, ref, template, 1, http, list, www, name, brazil, 2, mexico, no
+include, com, wikipedia, r, movie, de, language, title, 0
+Topic #9: category, united, states, us, city, cities, geo, stub, iowa, redirect,
+ county, towns, kentucky, illinois, kingdom, state, florida, virginia, idaho, ar
+kansas
+
+LDA
+
+Topic #0: 0, 1, 2, football, br, 3, 4, player, c, 5, club, statistics, 6, category, f, league, team, 7, national, rowspan
+Topic #1: ref, category, http, www, name, de, city, river, language, france, n, stub, jpg, country, title, people, district, sweden, file, area
+Topic #2: ref, http, name, category, www, united, states, title, cite, com, url, date, people, party, first, accessdate, web, publisher, new, news
+Topic #3: ref, span, title, style, color, user, talk, page, ucfirst, discussion, com, wwe, archive, http, middot, fullurl, url, wrestling, www, redirect
+Topic #4: b, d, category, american, ndash, name, redirect, end, ref, hurricane, 1, olympics, first, summer, year, german, image, world, storm, local
+Topic #5: category, ref, com, http, www, american, movie, br, name, date, title, url, music, cite, people, born, accessdate, television, web, new
+Topic #6: small, bgcolor, 0, county, 1, new, france, nbsp, 2, york, flagicon, ref, league, br, grand, 3, align, category, prix, saint
+Topic #7: user, font, talk, color, utc, span, style, wikipedia, b, sup, nbsp, template, page, article, special, 2009, nowiki, simple, small, 1
+Topic #8: align, center, style, text, ref, left, 2, 1, right, background, width, br, 3, 0, title, http, name, 5, 4, www
+Topic #9: ref, name, http, www, category, title, cite, jpg, used, url, also, file, com, thumb, first, one, journal, accessdate, publisher, web
+
+
+
+Economy/Economist-related
+---------------
+
+scala> Datasets.printBowStatistics(featuresEcon, Array(.05, .25, .5, .75, .95), .1, spark)
+# Documents: ~5035
+2018-05-07 17:00:37 WARN  ObjectStore:568 - Failed to get database global_temp, returning NoSuchObjectException
+Qtl Dist Tokens By Doc: 2.0, 174.0, 267.0, 685.0, 3958.0
+Qtl Doc Length: 2.0, 292.0, 423.0, 13513.0, 50659.0
+
+
+TensorLDA
+
+scala> alphaEcon
+res2: breeze.linalg.DenseVector[Double] = DenseVector(0.1689488740858642, 0.041082197867172814, 0.035617123390252546, 0.03297925987112382, 0.021692208146812553, 0.009626081390525376, 0.00923151394460828, 0.009137640199569431, 0.005027187928938381, 0.004012094609035215)
+
+scala> breeze.linalg.sum(alphaEcon)
+res3: Double = 0.33735418143390267
+
+
+Topic #0: ndash, b, d, american, actor, politician, actress, singer, german, english, french, footballer, player, writer, british, economists, italian, presiden
+t, john, director
+Topic #1: category, united, states, economy, country, america, commonscat, kingd
+om, north, redirect, economists, transport, american, economic, 1920s, class, e$onomies, government, state, us
+Topic #2: category, economics, redirect, commonscat, nobel, prize, cat, good, winners, main, list, economic, social, home, economists, policy, models, markets,
+theories, books
+Topic #3: category, ref, b, d, competition, name, depression, home, commerce, capitalism, title, ndash, cite, http, business, countries, url, r, www, world
+Topic #4: category, economy, redirect, country, companies, commonscat, asia, europe, class, transport, continent, economies, america, command, south, currency, north, africa, germany, india
+Topic #5: economics, class, command, country, continent, economists, economies, ref, experience, asia, www, http, oceania, development, africa, australia, name, europe, de, com
+Topic #6: commonscat, cat, main, books, policy, stub, markets, models, theories, people, economists, systems, university, http, ref, history, redirect, crime, social, life
+Topic #7: commonscat, redirect, currency, stub, american, policy, theories, models, books, markets, ref, history, crime, people, http, companies, military, systems, party, www
+Topic #8: economy, commonscat, home, good, competition, depression, models, books, theories, markets, categories, parent, policy, history, school, party, london, spelling, side, r
+Topic #9: economy, redirect, class, economic, command, economics, experience, zone, exclusive, index, development, depression, organisation, operation, companies, co, competition, home, list, germany
+
+
+LDA Online Variational
+
+Topic #0: beenonmainpage, fa, ref, com, http, belgianmunicipality, eco, www, alexa, nts, 13, dts, united, 11, traffic, siteinfo, details, open, 12, 2011
+Topic #1: born, new, jersey, actor, texas, austen, singer, actress, player, ref, b, york, col, football, div, film, american, jane, city, rockefeller
+Topic #2: b, find, word, replace, typo, 2, 1, e, ing, z, 0, w, d, n, chicago, 999, cc, aa, ref, ss
+Topic #3: align, ref, 1, center, city, 2, http, right, name, flag, small, 0, left, style, br, nbsp, title, www, web, province
+Topic #4: b, born, user, d, medicine, physiology, talk, style, chemistry, ref, physics, american, utc, category, 1, align, font, literature, 2, color
+Topic #5: ref, american, b, d, http, ndash, www, com, united, news, first, states, president, category, actor, title, dies, politician, cite, people
+Topic #6: li, em, 39, angela, user, deleted, 91, 2004, content, netoholic, 18, dec, 2003, talk, redirect, category, simonmayer, 02, http, delete
+Topic #7: airport, international, talk, ref, user, asthma, category, beenonmainpage, utc, http, name, airlines, www, may, 2013, br, fa, one, people, span
+Topic #8: nowrap, per, default, scale, utype, symbol, link, name1, dts, states, http, ref, army, episode, sortname, united, chyna, chart, name2, 1
+Topic #9: template, ref, user, font, talk, name, color, title, http, utc, www, cite, url, style, span, people, com, date, accessdate, publisher
+
+
+China-related
+------------------
+scala> Datasets.printBowStatistics(featuresChina, Array(.05, .25, .5, .75, .95), .1, spark)
+# Documents: ~6105
+Qtl Dist Tokens By Doc: 2.0, 125.0, 322.0, 1707.0, 3903.0
+Qtl Doc Length: 2.0, 205.0, 477.0, 1857.0, 50659.0
+
+Tensor LDA
+
+scala> alphaChina
+res8: breeze.linalg.DenseVector[Double] = DenseVector(2.112553014568355, 0.23252054228943547, 0.19977744079679852, 0.05678085689032803, 0.03968394815777506, 0.00529098410337452, 0.0028775704576025226, 0.002501589938905237, 0.0015289816411982564, 9.861908466582286E-4)
+
+scala> breeze.linalg.sum(alphaChina)
+res9: Double = 2.654501119690431
+
+Topic #0: ref, http, www, com, name, title, cite, url, accessdate, web, publisher, date, news, html, references, org, reflist, https, books, p
+Topic #1: ndash, b, d, american, actor, politician, singer, actress, english, german, footballer, french, writer, player, british, president, emperor, king, italian, ii
+Topic #2: br, align, small, bgcolor, center, 0, 1, 2, prix, style, grand, left, flag, 3, flagicon, 4, background, cfcfff, rowspan, 5
+Topic #3: china, chinese, zh, language, name, flag, ref, noinclude, hans, iso, 6
+39, lang, taipei, river, american, 1, simplified, title, http, taiwan
+Topic #4: zh, chinese, noinclude, lang, hans, name, county, iso, 639, district, flag, category, people, city, simplified, template, traditional, conversion, doc, republic
+Topic #5: chinese, china, republic, languages, asia, provinces, emperors, countr
+y, lang, cities, commonscat, ref, english, city, district, hong, kong, buildings
+, geography, province
+Topic #6: redirect, flag, people, category, country, province, asia, ref, county
+, languages, english, taiwan, svg, counties, city, united, noinclude, day, natio
+nal, d
+Topic #7: china, language, chinese, category, commonscat, nationality, hong, kon
+g, characters, occupation, music, singers, zh, culture, provinces, asian, beijin
+g, cat, actors, writers
+Topic #8: redirect, republic, flag, people, list, data, country, political, chin
+a, divisions, template, national, county, counties, province, river, noinclude, 
+emperors, day, svg
+Topic #9: language, characters, zodiac, han, cat, history, mandarin, year, templ
+ate, super, league, new, dolphin, name, simplified, dynasties, chess, mythology,
+ dragon, problem
+
+
+Online Variational
+
+Topic #0: b, word, find, replace, typo, 2, wrap, e, 1, z, bridge, d, r, ing, n, w, 0, aa, c, 999
+Topic #1: d, b, american, ndash, actor, politician, english, singer, united, actress, german, player, french, british, president, born, footballer, writer, states, war
+Topic #2: nowrap, united, states, army, sortname, sort, dts, navy, center, ref, e, honor, marine, private, first, medal, style, background, corps, jpg
+Topic #3: ref, user, http, www, talk, com, font, title, name, cite, color, url, utc, span, accessdate, web, date, publisher, style, 1
+Topic #4: link, airport, file, language, languages, airlines, flight, size, line, air, international, 2, svg, bull, alt, px, boeing, ref, board, metro
+Topic #5: image, nowiki, jpg, ticker, type, id, flag, timestamp, page, editor, name, svg, user, label, usage, description, status, end, tickerentry, update
+Topic #6: ref, china, language, http, name, 1, city, flag, category, www, 2, people, 0, chinese, title, republic, web, br, url, cite
+Topic #7: bgcolor, br, small, align, grand, prix, style, flagicon, 2, 0, center, cfcfff, 1, 3, background, ret, left, efcfff, rowspan, dfffdf
+Topic #8: align, right, center, river, ref, text, name, style, br, chinese, width, fb, includeonly, 1, jpg, flagicon, 50, rural, 2, 000
+Topic #9: fa, beenonmainpage, flag, left, align, est, 2011, small, talk, nbsp, user, records, 2010, href, nts, utc, 1, td, font, 2
+
+
+
+Jazz/Blues-related
+---------------------
+
+scala> Datasets.printBowStatistics(featuresMusic, Array(.05, .25, .5, .75, .95), .1, spark)
+# Documents: ~2690                                                              
+Qtl Dist Tokens By Doc: 2.0, 146.0, 285.0, 1565.0, 3958.0                       
+Qtl Doc Length: 2.0, 233.0, 629.0, 5954.0, 31553.0   
+
+
+Tensor LDA
+
+scala> alphaMusic
+res15: breeze.linalg.DenseVector[Double] = DenseVector(0.7703258343831451, 0.32119701182836446, 0.08561663008147719, 0.04997825390849591, 0.008806204163154922, 0.006404988589273167, 0.0014622231791618268, 8.219101434667569E-4, 3.5367282199432094E-4, 2.4144427831751506E-4)
+
+scala> breeze.linalg.sum(alphaMusic)
+res16: Double = 1.2452081733768512
+
+Topic #0: b, d, american, actor, politician, actress, footballer, german, english, french, writer, singer, player, r, ndash, president, italian, british, war, director
+Topic #1: br, records, rock, album, band, category, small, label, albums, artist, infobox, genre, groups, single, background, released, musical, song, years_active, name
+Topic #2: ndash, d, b, american, politician, actor, german, actress, english, footballer, french, film, writer, singer, british, player, italian, war, president
+, 2014
+Topic #3: align, center, small, left, 2, 1, bgcolor, 3, style, top, width, valig
+n, 0, 5, colspan, 4, text, rowspan, chart, 7
+Topic #4: redirect, blues, b, rock, louis, st, hockey, albums, rhythm, nhl, br, players, d, music, league, r, brothers, ref, ice, list
+Topic #5: jazz, musicians, category, commonscat, genre, composers, airline, wrestler, pianists, singers, movie, defaultsort, 1927, deaths, ndash, instruments, s
+inger, born, births, film
+Topic #6: blues, redirect, rhythm, music, brothers, rock, punk, scale, jazz, tex
+as, image, genres, category, british, louis, st, list, albums, airline, wrestler
+Topic #7: category, music, musicians, albums, jazz, genre, american, commonscat,
+ hockey, nhl, defaultsort, singers, r, musical, stub, births, league, composers,
+ bands, people
+Topic #8: category, musicians, american, hockey, nhl, genre, born, commonscat, l
+eague, singers, season, ref, defaultsort, births, com, deaths, http, new, compos
+ers, ice
+Topic #9: blues, redirect, rhythm, brothers, rock, punk, scale, texas, image, br
+itish, list, wrestler, airline, louis, st, genres, harmonica, records, 1927, alb
+um
+
+Online Variational
+
+Topic #0: ndash, b, american, d, john, movie, actor, singer, politician, german, english, actress, writer, french, footballer, british, war, player, james, italian
+Topic #1: hs, ndash, ref, american, accessdate, category, publishdate, date, d, http, url, refname, www, b, publisher, title, tag, artist, 2012, location
+Topic #2: records, ref, american, recordings, http, d, b, music, www, category, united, com, born, chicago, user, label, center, font, record, div
+Topic #3: align, center, color, user, talk, font, style, span, small, utc, born, left, b, 1, 2, article, background, sup, 2008, new
+Topic #4: align, nhl, bgcolor, 1, season, 2, 3, center, 4, 5, width, hockey, 0, ddddff, new, 7, ice, left, cup, rd1
+Topic #5: ref, align, b, d, 000, left, category, american, name, http, divisi, music, br, www, segunda, c, liga, center, blues, rock
+Topic #6: ref, american, b, d, http, www, com, cite, title, url, actor, accessdate, style, born, first, film, singer, web, news, name
+Topic #7: ref, nbsp, http, www, com, american, dts, format, dies, y, news, b, voice, born, role, d, html, category, icon, user
+Topic #8: name1, name3, ffffff, edu, manual, pdf, brand, cite, name2, guide, identity, university, standards, colors, 000000, accessdate, blue, guidelines, 2016, url
+Topic #9: template, music, category, album, doc, ref, rock, br, band, image, name, song, records, http, small, blues, www, albums, com, title
